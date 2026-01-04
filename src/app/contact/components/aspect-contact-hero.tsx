@@ -36,27 +36,31 @@ export default function AspectContactHero() {
       <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
       <div className="mx-auto w-full max-w-[1280px]">
-        {/* Hero grid - asymmetric 5 column layout */}
-        <div className="border-border grid grid-cols-1 border-b md:grid-cols-5">
+        {/* Hero grid - bento style */}
+        <div className="border-border grid grid-cols-1 border-b md:grid-cols-12">
           {/* Title area */}
-          <div className="border-border border-b p-6 pt-24 md:col-span-3 md:border-r md:border-b-0 md:p-12 md:pt-32">
+          <div className="border-border order-1 border-b p-6 pt-24 md:col-span-7 md:border-r md:border-b-0 md:p-12 md:pt-32">
             <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
               Get in Touch
             </span>
             <h1 className="text-foreground mt-4 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
-              Let's Talk Safety
+              Let&apos;s Talk Safety
             </h1>
             <p className="text-muted-foreground mt-6 max-w-lg leading-relaxed">
               Whether you have questions about our services, need a quote, or
-              want to discuss your specific safety challenges—we're here to
+              want to discuss your specific safety challenges—we&apos;re here to
               help.
             </p>
           </div>
 
-          {/* Large accent block */}
-          <div className="hidden items-end justify-end p-8 md:col-span-2 md:flex">
-            <p className="text-dark-gray text-right text-8xl leading-none font-light tracking-tighter lg:text-9xl">
+          {/* Accent block */}
+          <div className="order-2 flex flex-col justify-between p-6 md:col-span-5 md:p-8">
+            <p className="text-dark-gray text-6xl font-light tracking-tighter md:text-7xl lg:text-8xl">
               @
+            </p>
+            <p className="text-muted-foreground mt-6 leading-relaxed">
+              Free consultations available. No obligation, just honest expert
+              advice.
             </p>
           </div>
         </div>
@@ -83,17 +87,14 @@ export default function AspectContactHero() {
             return (
               <div
                 key={item.label}
-                className={`p-6 md:p-8 ${
+                className={`group hover:bg-jet p-6 transition-colors md:p-8 ${
                   index < contactDetails.length - 1
                     ? 'border-border border-r'
                     : ''
                 } ${index < 2 ? 'border-border border-b md:border-b-0' : ''}`}
               >
                 {item.href ? (
-                  <Link
-                    href={item.href}
-                    className="group block transition-colors"
-                  >
+                  <Link href={item.href} className="block transition-colors">
                     {content}
                   </Link>
                 ) : (

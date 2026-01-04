@@ -1,22 +1,23 @@
-import AspectTestimonials from '@/components/sections/aspect-testimonials';
-
-import AspectDashboard from './components/aspect-dashboard';
-import AspectFaq from './components/aspect-faq';
-import AspectHero from './components/aspect-hero';
-import AspectLogos from './components/aspect-logos';
-import { AspectTabs } from './components/aspect-tabs';
-import AspectWorldMap from './components/aspect-world-map';
+import AspectCta from '@/components/sections/homepage/aspect-cta';
+import AspectDashboard from '@/components/sections/homepage/aspect-dashboard';
+import AspectFaq from '@/components/sections/homepage/aspect-faq';
+import AspectHero from '@/components/sections/homepage/aspect-hero';
+import AspectLogos from '@/components/sections/homepage/aspect-logos';
+import AspectServices from '@/components/sections/homepage/aspect-services';
+import AspectStats from '@/components/sections/homepage/aspect-stats';
+import AspectTestimonial from '@/components/sections/homepage/aspect-testimonial';
 
 export default function Home() {
   return (
     <>
       <AspectHero />
-      <AspectLogos />
-      <AspectTabs />
-      <AspectTestimonials />
       <AspectDashboard />
+      <AspectLogos />
+      <AspectTestimonial />
+      <AspectStats />
+      <AspectServices />
       <AspectFaq />
-      <AspectWorldMap />
+      <AspectCta />
     </>
   );
 }

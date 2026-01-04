@@ -9,14 +9,14 @@ import type { PostFrontmatter } from '@/types/post';
 
 const mdxComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mb-2 text-3xl tracking-tight text-white" {...props} />
+    <h2 className="text-foreground mb-2 text-3xl tracking-tight" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="text-muted-foreground" {...props} />
   ),
 };
 
-const POSTS_DIR = path.join(process.cwd(), 'src', 'blog');
+const POSTS_DIR = path.join(process.cwd(), 'src', 'articles');
 
 export async function getPost(slug: string): Promise<{
   frontmatter: PostFrontmatter;

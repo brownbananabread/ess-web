@@ -148,11 +148,15 @@ export default function AspectPricingTable() {
   const [selectedPlan, setSelectedPlan] = useState(1);
 
   return (
-    <section className="bg-obsidian px-2.5 lg:px-0">
+    <section className="bg-obsidian relative overflow-hidden px-2.5 lg:px-0">
+      {/* Side borders */}
+      <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
+      <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
+
       <div className="mx-auto w-full max-w-[1280px]">
         {/* Section header */}
-        <div className="border-dark-gray grid grid-cols-1 border-r border-b border-l md:grid-cols-3">
-          <div className="border-dark-gray border-b p-6 md:col-span-2 md:border-r md:border-b-0 md:p-12">
+        <div className="border-border grid grid-cols-1 border-b md:grid-cols-3">
+          <div className="border-border border-b p-6 md:col-span-2 md:border-r md:border-b-0 md:p-12">
             <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
               Compare
             </span>
@@ -168,7 +172,7 @@ export default function AspectPricingTable() {
         </div>
 
         {/* Table */}
-        <div className="border-dark-gray border-r border-b border-l">
+        <div className="border-border border-b">
           <Header selectedPlan={selectedPlan} onPlanChange={setSelectedPlan} />
           <div>
             {featureSections.map((sec, i) => (
@@ -195,7 +199,7 @@ function Header({
   return (
     <>
       {/* Mobile view: dropdown plan selector */}
-      <div className="border-dark-gray border-b md:hidden">
+      <div className="border-border border-b md:hidden">
         <Collapsible open={open} onOpenChange={setOpen}>
           <div className="flex items-center justify-between px-6 py-6">
             <CollapsibleTrigger className="flex items-center gap-2">
@@ -212,13 +216,13 @@ function Header({
 
             <Link
               href={servicePlans[selectedPlan].href}
-              className="border-dark-gray text-foreground hover:bg-foreground hover:text-background border px-4 py-2 text-sm font-medium transition-colors"
+              className="border-border text-foreground hover:bg-foreground hover:text-background border px-4 py-2 text-sm font-medium transition-colors"
             >
               {servicePlans[selectedPlan].cta}
             </Link>
           </div>
 
-          <CollapsibleContent className="border-dark-gray flex flex-col gap-2 border-t px-6 py-4">
+          <CollapsibleContent className="border-border flex flex-col gap-2 border-t px-6 py-4">
             {servicePlans.map((p, i) =>
               i === selectedPlan ? null : (
                 <button
@@ -238,8 +242,8 @@ function Header({
       </div>
 
       {/* Desktop view: four-column header (blank + three plans) */}
-      <div className="border-dark-gray hidden grid-cols-4 border-b md:grid">
-        <div className="border-dark-gray border-r p-8">
+      <div className="border-border hidden grid-cols-4 border-b md:grid">
+        <div className="border-border border-r p-8">
           <span className="text-dark-gray text-4xl font-light tracking-tighter">
             →
           </span>
@@ -249,7 +253,7 @@ function Header({
             key={p.name}
             className={cn(
               'flex flex-col justify-between gap-4 p-8',
-              i < 2 && 'border-dark-gray border-r',
+              i < 2 && 'border-border border-r',
               i === 1 && 'bg-jet',
             )}
           >
@@ -267,7 +271,7 @@ function Header({
                 'inline-flex w-fit items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors',
                 i === 1
                   ? 'border-foreground bg-foreground text-background hover:text-foreground hover:bg-transparent'
-                  : 'border-dark-gray text-foreground hover:bg-foreground hover:text-background',
+                  : 'border-border text-foreground hover:bg-foreground hover:text-background',
               )}
             >
               {p.cta}
@@ -289,8 +293,8 @@ function Section({
   selectedPlan: number;
 }) {
   return (
-    <div className="border-dark-gray border-b last:border-b-0">
-      <div className="border-dark-gray bg-obsidian flex min-h-16 items-center border-b p-6 md:p-8">
+    <div className="border-border border-b last:border-b-0">
+      <div className="border-border bg-obsidian flex min-h-16 items-center border-b p-6 md:p-8">
         <h3 className="text-foreground text-sm font-medium tracking-widest uppercase">
           {sec.category}
         </h3>
@@ -299,9 +303,9 @@ function Section({
       {sec.rows.map((row, idx) => (
         <div
           key={idx}
-          className="border-dark-gray text-foreground grid min-h-16 grid-cols-2 items-center border-b last:border-b-0 md:grid-cols-4"
+          className="border-border text-foreground grid min-h-16 grid-cols-2 items-center border-b last:border-b-0 md:grid-cols-4"
         >
-          <div className="border-dark-gray flex h-full items-center p-4 pl-6 md:border-r md:p-6 md:pl-8">
+          <div className="border-border flex h-full items-center p-4 pl-6 md:border-r md:p-6 md:pl-8">
             <span className="text-sm">{row.name}</span>
           </div>
 
@@ -319,7 +323,7 @@ function Section({
                 key={i}
                 className={cn(
                   'flex h-full flex-1 items-center p-6',
-                  i < 2 && 'border-dark-gray border-r',
+                  i < 2 && 'border-border border-r',
                   i === 1 && 'bg-jet',
                 )}
               >

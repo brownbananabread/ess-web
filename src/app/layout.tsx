@@ -14,61 +14,47 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://eternalsafetysolutions.com.au'),
   title: {
-    default: 'Aspect - Modern Next.js Template',
-    template: '%s | Aspect',
+    default: 'Eternal Safety Solutions',
+    template: '%s - Eternal Safety Solutions',
   },
   description:
-    'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
+    'Comprehensive workplace health and safety consulting, training, and compliance services. Building safer workplaces across Australia.',
   keywords: [
-    'Next.js',
-    'React',
-    'JavaScript',
-    'TypeScript',
-    'TailwindCSS',
-    'Template',
-    'Shadcn/UI',
-    'Web Development',
+    'WHS consulting',
+    'workplace safety',
+    'ISO45001',
+    'safety training',
+    'risk management',
+    'compliance',
+    'Australia',
+    'NSW',
   ],
-  authors: [{ name: 'Aspect Team' }],
-  creator: 'Aspect Team',
-  publisher: 'Aspect',
+  authors: [{ name: 'Eternal Safety Solutions' }],
+  creator: 'Eternal Safety Solutions',
+  publisher: 'Eternal Safety Solutions',
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: [
-      { url: '/favicon/favicon.ico', sizes: '48x48' },
-      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon.ico' },
-    ],
-    apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-    shortcut: [{ url: '/favicon/favicon.ico' }],
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'Aspect - Modern Next.js Template',
+    title: 'Eternal Safety Solutions',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
-    siteName: 'Aspect',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Aspect - Modern Next.js Template',
-      },
-    ],
+      'Comprehensive workplace health and safety consulting, training, and compliance services. Building safer workplaces across Australia.',
+    siteName: 'Eternal Safety Solutions',
+    locale: 'en_AU',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aspect - Modern Next.js Template',
+    title: 'Eternal Safety Solutions',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
-    images: ['/og-image.jpg'],
-    creator: '@aspect',
+      'Comprehensive workplace health and safety consulting, training, and compliance services. Building safer workplaces across Australia.',
   },
 };
 
@@ -79,7 +65,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`bg-obsidian h-screen ${figtree.variable} antialiased`}>
+      <body
+        className={`bg-obsidian min-h-screen ${figtree.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

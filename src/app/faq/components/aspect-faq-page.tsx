@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Accordion,
   AccordionContent,
@@ -194,78 +196,130 @@ const faqItems: FAQItem[] = [
 
 export const AspectFAQPage = () => {
   return (
-    <section className="bg-obsidian relative overflow-hidden px-2.5 lg:px-0">
-      {/* Side borders */}
-      <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
-      <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
+    <>
+      {/* Hero Section */}
+      <section className="bg-obsidian relative overflow-hidden px-2.5 lg:px-0">
+        {/* Side borders */}
+        <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
+        <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
-      <div className="mx-auto w-full max-w-[1280px]">
-        {/* Bento grid hero */}
-        <div className="border-border grid grid-cols-1 border-b md:grid-cols-12">
-          {/* Title block */}
-          <div className="border-border order-1 border-b p-6 pt-24 md:col-span-8 md:border-r md:border-b-0 md:p-12 md:pt-32">
-            <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
-              Support
-            </span>
-            <h1 className="text-foreground mt-4 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
-              Frequently Asked Questions
-            </h1>
-          </div>
-
-          {/* Accent block */}
-          <div className="order-2 flex flex-col justify-between p-6 md:col-span-4 md:p-8">
-            <p className="text-dark-gray text-6xl font-light tracking-tighter md:text-7xl">
-              FAQ
-            </p>
-            <p className="text-muted-foreground mt-6 leading-relaxed">
-              Your questions about workplace health and safety, answered.
-            </p>
+        <div className="mx-auto w-full max-w-[1280px]">
+          <div className="border-border grid grid-cols-1 md:grid-cols-12">
+            {/* Title block */}
+            <div className="p-6 pt-24 md:col-span-12 md:p-12 md:pt-32">
+              <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
+                Support
+              </span>
+              <h1 className="text-foreground mt-4 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
+                Frequently Asked Questions
+              </h1>
+              <p className="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
+                Find answers to common questions about workplace health and
+                safety, our services, and how we can help your business.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Separator */}
-        <div className="border-border h-20 border-b"></div>
+      {/* Info bar */}
+      <section className="bg-obsidian border-border relative border-y px-2.5 lg:px-0">
+        {/* Side borders */}
+        <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
+        <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
-        {categories.map((cat) => {
-          const items = faqItems.filter((f) => f.category === cat.name);
-          return (
-            <div key={cat.name} className="px-0">
-              <div className="flex flex-col md:flex-row">
-                <div className="border-border w-full border-b px-8 py-8 md:w-1/3 md:border-r md:border-b-0 md:px-6">
-                  <h2 className="text-foreground mb-4 text-3xl font-medium tracking-tight md:text-4xl">
-                    {cat.name}
-                  </h2>
-                  <p className="text-muted-foreground">{cat.description}</p>
-                </div>
+        <div className="mx-auto w-full max-w-[1280px]">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <div className="border-border border-r p-4 md:p-6">
+              <p className="text-muted-foreground text-xs tracking-wider uppercase">
+                Categories
+              </p>
+              <p className="text-foreground mt-1 text-sm font-medium">
+                {categories.length} Topics
+              </p>
+            </div>
+            <div className="border-border p-4 md:border-r md:p-6">
+              <p className="text-muted-foreground text-xs tracking-wider uppercase">
+                Questions
+              </p>
+              <p className="text-foreground mt-1 text-sm font-medium">
+                {faqItems.length} Answers
+              </p>
+            </div>
+            <div className="border-border border-t border-r p-4 md:border-t-0 md:p-6">
+              <p className="text-muted-foreground text-xs tracking-wider uppercase">
+                Coverage
+              </p>
+              <p className="text-foreground mt-1 text-sm font-medium">
+                Australia Wide
+              </p>
+            </div>
+            <div className="border-border border-t p-4 md:border-t-0 md:p-6">
+              <p className="text-muted-foreground text-xs tracking-wider uppercase">
+                Consultation
+              </p>
+              <p className="text-foreground mt-1 text-sm font-medium">
+                Free Initial
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="w-full md:w-2/3">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="text-foreground"
-                  >
-                    {items.map((faq, i) => (
-                      <AccordionItem
-                        key={i}
-                        value={`${cat.name}-${i}`}
-                        className="data-[state=open]:bg-jet border-border border-b p-6"
-                      >
-                        <AccordionTrigger className="text-xl">
-                          {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground text-base">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
+      {/* FAQ Content */}
+      <section className="bg-obsidian relative overflow-hidden px-2.5 lg:px-0">
+        {/* Side borders */}
+        <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
+        <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
+
+        <div className="mx-auto w-full max-w-[1280px]">
+          {categories.map((cat, catIndex) => {
+            const items = faqItems.filter((f) => f.category === cat.name);
+            return (
+              <div
+                key={cat.name}
+                className={`border-border ${catIndex < categories.length - 1 ? 'border-b' : ''}`}
+              >
+                <div className="flex flex-col md:flex-row">
+                  {/* Category header */}
+                  <div className="border-border w-full border-b px-6 py-8 md:w-1/3 md:border-r md:border-b-0 md:py-12">
+                    <h2 className="text-foreground mb-4 text-2xl font-medium tracking-tight md:text-3xl">
+                      {cat.name}
+                    </h2>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {cat.description}
+                    </p>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="w-full md:w-2/3">
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="text-foreground"
+                    >
+                      {items.map((faq, i) => (
+                        <AccordionItem
+                          key={i}
+                          value={`${cat.name}-${i}`}
+                          className="data-[state=open]:bg-jet border-border border-b px-6 py-4 last:border-b-0 md:last:border-b"
+                        >
+                          <AccordionTrigger className="text-left text-base font-medium md:text-lg">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
                 </div>
               </div>
-              <div className="border-border container h-20 border-b"></div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 };
