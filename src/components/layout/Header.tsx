@@ -10,11 +10,10 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from '../ui/theme-toggle';
 
 const ITEMS = [
-  { label: 'About', href: '/about' },
+  { label: 'About Us', href: '/about' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'Bookings', href: '/bookings' },
   { label: 'Articles', href: '/articles' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -125,7 +124,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          'border-border absolute inset-x-0 top-full container flex h-[calc(100vh-80px)] flex-col border-t px-2.5 lg:px-0',
+          'border-border absolute inset-x-0 top-full container flex h-[calc(100vh-var(--header-height))] flex-col border-t px-2.5 lg:px-0',
           'transition duration-300 ease-in-out lg:hidden',
           isMenuOpen
             ? 'pointer-events-auto translate-y-0 opacity-100'
@@ -137,7 +136,7 @@ const Navbar = () => {
         <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
         <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
-        <div className="h-[calc(100vh-80px)] px-5">
+        <div className="h-[calc(100vh-var(--header-height))] px-5">
           <nav className="mt-8 flex flex-1 flex-col gap-1">
             {ITEMS.map((link) => (
               <Link

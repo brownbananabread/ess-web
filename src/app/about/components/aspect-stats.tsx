@@ -1,21 +1,21 @@
 const STATS = [
   {
-    number: '0+',
+    number: '4+',
     label: 'Years Experience',
     description: 'Dedicated to workplace safety',
   },
   {
-    number: '0+',
+    number: '10+',
     label: 'Clients Served',
     description: 'Across diverse industries',
   },
   {
-    number: '0%',
-    label: 'Client Retention',
+    number: '100%',
+    label: 'Client Satisfaction',
     description: 'Long-term partnerships',
   },
   {
-    number: '0/0',
+    number: '24/7',
     label: 'Support Available',
     description: 'When you need us most',
   },

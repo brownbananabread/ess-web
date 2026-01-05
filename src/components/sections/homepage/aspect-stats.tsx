@@ -1,6 +1,6 @@
 const STATS = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '200+', label: 'Businesses Helped' },
+  { value: '4+', label: 'Years Experience' },
+  { value: '10+', label: 'Businesses Helped' },
   { value: '100%', label: 'Client Satisfaction' },
 ];
 
@@ -18,9 +18,7 @@ export default function AspectStats() {
               <p className="text-foreground text-4xl font-light tracking-tight md:text-5xl">
                 {stat.value}
               </p>
-              <p className="text-muted-foreground mt-2 text-sm">
-                {stat.label}
-              </p>
+              <p className="text-muted-foreground mt-2 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>

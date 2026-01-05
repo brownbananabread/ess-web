@@ -1,3 +1,90 @@
+import { Mail, MapPin, Phone } from 'lucide-react';
+import Link from 'next/link';
+
+const CONTACT_INFO = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'levi@eternalsafetysolutions.com.au',
+    href: 'mailto:levi@eternalsafetysolutions.com.au',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '0478 669 655',
+    href: 'tel:+61478669655',
+  },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'New South Wales, Australia',
+    href: null,
+  },
+];
+
+export default function ContactPage() {
+  return (
+    <main className="bg-obsidian flex min-h-[calc(100vh-var(--header-height))] items-center justify-center px-2.5 lg:px-0">
+      {/* Side borders */}
+      <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
+      <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
+
+      <div className="container">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-muted-foreground text-sm tracking-widest uppercase">
+            Contact
+          </p>
+          <h1 className="text-foreground mt-4 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
+            Let&apos;s talk safety
+          </h1>
+          <p className="text-muted-foreground mx-auto mt-6 max-w-lg leading-relaxed">
+            Whether you have questions about our services, need a quote, or want
+            to discuss your specific safety challenges—we&apos;re here to help.
+          </p>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-12">
+            {CONTACT_INFO.map((item) => {
+              const Icon = item.icon;
+              const content = (
+                <div className="flex flex-col items-center gap-3">
+                  <Icon
+                    className="text-muted-foreground size-6"
+                    strokeWidth={1.5}
+                  />
+                  <div className="text-center">
+                    <p className="text-muted-foreground text-sm">
+                      {item.label}
+                    </p>
+                    <p className="text-foreground mt-1 font-medium">
+                      {item.value}
+                    </p>
+                  </div>
+                </div>
+              );
+
+              return item.href ? (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="transition-opacity hover:opacity-80"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div key={item.label}>{content}</div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+/* =============================================================================
+   PREVIOUS CONTACT PAGE IMPLEMENTATION (COMMENTED OUT)
+   =============================================================================
+
 'use client';
 
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
@@ -64,7 +151,7 @@ export default function ContactPage() {
 
   return (
     <main className="bg-obsidian min-h-screen">
-      {/* Hero */}
+      {// Hero }
       <section className="border-border relative border-b px-2.5 pt-32 pb-20 md:pt-40 md:pb-24 lg:px-0">
         <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
         <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
@@ -90,10 +177,17 @@ export default function ContactPage() {
                 const Icon = item.icon;
                 const content = (
                   <div className="flex items-center gap-4">
-                    <Icon className="text-muted-foreground size-5" strokeWidth={1.5} />
+                    <Icon
+                      className="text-muted-foreground size-5"
+                      strokeWidth={1.5}
+                    />
                     <div>
-                      <p className="text-muted-foreground text-sm">{item.label}</p>
-                      <p className="text-foreground font-medium">{item.value}</p>
+                      <p className="text-muted-foreground text-sm">
+                        {item.label}
+                      </p>
+                      <p className="text-foreground font-medium">
+                        {item.value}
+                      </p>
                     </div>
                   </div>
                 );
@@ -111,14 +205,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form */}
+      {// Form }
       <section className="border-border relative border-b px-2.5 py-20 md:py-24 lg:px-0">
         <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
         <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
         <div className="container">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-            {/* Left - Header */}
             <div>
               <p className="text-muted-foreground text-sm tracking-widest uppercase">
                 Send a Message
@@ -131,7 +224,6 @@ export default function ContactPage() {
                 inquiries are treated with complete confidentiality.
               </p>
 
-              {/* Inquiry type selection */}
               <div className="mt-8">
                 <p className="text-muted-foreground mb-4 text-sm">
                   What can we help you with?
@@ -155,7 +247,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right - Form */}
             <div>
               <form className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
@@ -253,14 +344,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {// FAQ }
       <section className="relative px-2.5 py-20 md:py-24 lg:px-0">
         <div className="bg-border pointer-events-none absolute inset-y-0 left-2.5 z-10 w-px lg:left-[calc((100%-1280px)/2)]" />
         <div className="bg-border pointer-events-none absolute inset-y-0 right-2.5 z-10 w-px lg:right-[calc((100%-1280px)/2)]" />
 
         <div className="container">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left - Header */}
             <div>
               <p className="text-muted-foreground text-sm tracking-widest uppercase">
                 FAQ
@@ -280,7 +370,6 @@ export default function ContactPage() {
               </Link>
             </div>
 
-            {/* Right - Accordion */}
             <div>
               <Accordion type="single" collapsible className="text-foreground">
                 {FAQS.map((faq, i) => (
@@ -305,3 +394,5 @@ export default function ContactPage() {
     </main>
   );
 }
+
+============================================================================= */

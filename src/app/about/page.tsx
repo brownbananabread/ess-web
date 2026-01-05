@@ -66,7 +66,7 @@ export default function AboutPage() {
                 Our Mission
               </p>
               <h2 className="text-foreground mt-4 text-3xl font-medium tracking-tight md:text-4xl">
-                Ensuring the WHS needs of businesses for a safer future
+                Ensuring the WHS needs of businesses for a safer and sustainable future
               </h2>
             </div>
             <div className="flex flex-col justify-center">
@@ -163,10 +163,12 @@ export default function AboutPage() {
                 Director & Safety Consultant
               </p>
               <p className="text-muted-foreground mt-8 max-w-lg leading-relaxed">
-                With a passion for creating safer workplaces, Levi founded ESS
-                to bring a fresh, people-focused approach to workplace health
-                and safety consulting. His experience spans across multiple
-                industries, helping businesses build sustainable safety cultures
+                With over 4 years of experience and a passion for creating safer
+                workplaces, Levi founded ESS to bring a fresh, people-focused
+                approach to workplace health and safety consulting. His
+                experience spans construction, aged care, transport and
+                logistics, manufacturing, food retail, hospitality, and food
+                processing—helping businesses build sustainable safety cultures
                 that go beyond compliance.
               </p>
             </div>
